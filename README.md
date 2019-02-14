@@ -19,3 +19,14 @@ If you want to run Docker commands without "sudo", you can add your username to 
 sudo usermod -aG docker ${USER}
 ```
 
+## Install the CODES simulator and CODES-VIS tools
+
+```
+git clone https://
+```
+
+
+### Build hpc-vast and vis tools: 
+
+```
+docker build -t hpc-vast -f hpc-vast.dockerfile --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
