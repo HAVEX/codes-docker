@@ -29,4 +29,4 @@ git clone https://
 ### Build hpc-vast and vis tools: 
 
 ```
-docker build -t hpc-vast -f hpc-vast.dockerfile --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
+docker build -t hpc-vast -f hpc-vast.dockerfile --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --squash .

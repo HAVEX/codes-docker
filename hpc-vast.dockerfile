@@ -12,11 +12,13 @@ RUN mkdir -p /root/.ssh && \
     ssh-keyscan sphere.cs.ucdavis.edu > /root/.ssh/known_hosts
 
 # Add the keys and set permissions
-RUN echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
+RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
+    echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
+    chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
 WORKDIR "/opt"
-RUN git clone https://sphere.cs.ucdavis.edu/kelli/hpc-vast
+RUN git clone git@sphere.cs.ucdavis.edu:kelli/hpc-vast.git
 RUN git clone hgit clone https://github.com/HAVEX/ross-vis-server
 
 WORKDIR "/opt/hpc-vast/dim_reduction/inc_pca"
